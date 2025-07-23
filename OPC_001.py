@@ -61,18 +61,20 @@ try:
             print("距離測定エラー")
             turn_off_all_leds()
         else:
-            print(f"距離: {distance:.2f} cm")
+            # 距離に応じてメッセージを変化
+            print(f"距離: {distance:.2f} cm - {'近すぎるよ！' if distance < 30 else 'ちょうどいい' if distance <= 60 else '遠いね'}")
             
             # すべてのLEDを一旦オフ
             turn_off_all_leds()
             
             # 距離に応じてLEDを点灯
-            # 近距離: < 10 cm → 赤
-            # 中距離: 10-60 cm → 黄
-            # 遠距離: > 50 cm → 緑
             # （必要に応じて閾値を調整）
             if distance < 30:
-                red_led.on()
+                for _ in range(5):  # 5回点滅
+                    red_led.on()
+                    time.sleep(0.1)
+                    red_led.off()
+                    time.sleep(0.1)
             elif 30 <= distance <= 60:
                 yellow_led.on()
             else:
