@@ -64,9 +64,9 @@ try:
             turn_off_all_leds()
             
             # カスタムここから！閾値を変えてみよう
-            if distance < 10:  # <--- ここを変える
+            if distance < 10:  # <--- 赤色LEDが点灯する距離はここを変える
                 red_led.on()
-            elif 10 <= distance <= 50:  # <--- ここを変える
+            elif 10 <= distance <= 50:  # <--- 黄色LEDと緑色LEDはここを変える
                 yellow_led.on()
             else:
                 green_led.on()
