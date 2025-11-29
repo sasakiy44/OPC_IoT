@@ -1,5 +1,5 @@
 # LED Parking Sensor for ESP32-C3M-TRY
-# version 1.05
+# version 1.05a
 # update 2025/11/29
 
 from machine import Pin, I2C
